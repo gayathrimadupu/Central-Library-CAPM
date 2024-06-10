@@ -1,6 +1,5 @@
 sap.ui.define([
     "./baseController",
-    // "sap/ui/core/mvc/Controller",
     "sap/m/Token",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
