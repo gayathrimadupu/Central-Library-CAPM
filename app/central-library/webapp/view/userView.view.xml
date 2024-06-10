@@ -1,0 +1,231 @@
+<mvc:View
+    controllerName="com.app.centrallibrary.controller.userView"
+    xmlns="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:ui5="sap.ui.webc.main"
+    height="100%"
+>
+    <ui5:Toast
+        id="demoToast"
+        duration="2000"
+        height="30%"
+        width="30%"
+    />
+    <ObjectPageLayout
+        id="idUserDataPage"
+        enableLazyLoading="true"
+        beforeNavigate="onBeforeNavigate"
+        useIconTabBar="true"
+        showTitleInHeaderContent="true"
+        upperCaseAnchorBar="false"
+        sectionChange="onSectionChange"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle id="idObjectPageDynamicHeaderTitle">
+                <expandedHeading>
+                    <m:Title
+                        id="IdLibraryTitle"
+                        text="Central Library"
+                        wrapping="true"
+                    />
+                </expandedHeading>
+
+                <snappedHeading>
+                    <m:FlexBox
+                        id="idFlexBoxHeaderContent"
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <m:Avatar
+                            id="idAvatar"
+                            src=""
+                            class="sapUiTinyMarginEnd"
+                        />
+                        <m:Title
+                            id="idUserName"
+                            text="{userName}"
+                            wrapping="true"
+                        />
+                    </m:FlexBox>
+                </snappedHeading>
+
+                <expandedContent>
+                    <m:Text
+                        id="idWelcomeTag"
+                        text="Welcome"
+                    />
+                </expandedContent>
+                <actions>
+                    <m:Button
+                        id="idLogOutbutton"
+                        icon="sap-icon://log"
+                        press="onLogoutPress"
+                    />
+                </actions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <headerContent>
+            <m:FlexBox
+                id="idFlexBok2"
+                wrap="Wrap"
+                fitContainer="true"
+            >
+                <m:Avatar
+                    id="idAvatar2"
+                    class="sapUiSmallMarginEnd"
+                    src=""
+                    displaySize="L"
+                />
+
+                <layout:VerticalLayout
+                    id="idVerticalLayout"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Text
+                        id="idTextUserName"
+                        text="{userName}"
+                    />
+                    <m:Link
+                        id="idUserIdLink"
+                        text="{userid}"
+                    />
+                </layout:VerticalLayout>
+                <!-- <layout:HorizontalLayout
+                    id="idHorizontalLayout"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Image
+                        id="idImage"
+                        src=""
+                    />
+                    <m:Image
+                        id="idImage2"
+                        src=""
+                        class="sapUiSmallMarginBegin"
+                    />
+                </layout:HorizontalLayout> -->
+
+                <layout:VerticalLayout
+                    id="idVerticalLayout2"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Label
+                        id="idLabelForUserText"
+                        text="Hello! {userName} greetings from Central Library"
+                    />
+                </layout:VerticalLayout>
+
+                <layout:VerticalLayout
+                    id="idVerticalLayout3"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Label
+                        id="idLabelAddress"
+                        text="HYD"
+                    />
+                </layout:VerticalLayout>
+            </m:FlexBox>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection
+                titleUppercase="false"
+                id="idUserBorrowedBooksSection"
+                title="All Borrows"
+            >
+                <subSections>
+                    <ObjectPageSubSection
+                        id="idUserBorrowedBooksSubSection"
+                        titleUppercase="false"
+                    >
+                        <blocks>
+                            <m:Table
+                                id="idUserActiveLoanTable"
+                                mode="SingleSelectMaster"
+                                alternateRowColors="true"
+                                items="{/Activeloans}"
+                            >
+                                <m:headerToolbar>
+                                    <m:OverflowToolbar
+                                        id="idBooksTableHeaderUserLoans"
+                                    >
+                                        <m:Title
+                                            id="idTableHeaderTitleUserLoans"
+                                            text="Active Borrows"
+                                        />
+                                        <m:ToolbarSpacer
+                                            id="idTableHeaderSpacerUserLoans"
+                                        />
+                                        <m:Button
+                                            id="idUserAllBooksbtn"
+                                            type="Success"
+                                            text="All Books"
+                                            press="onAllBooksUserPress"
+                                        />
+                                    </m:OverflowToolbar>
+                                </m:headerToolbar>
+                                <m:columns>
+                                    <m:Column id="idBookNameColUserLoans">
+                                        <m:Title
+                                            id="idBookNameColTitleUserLoans"
+                                            text="User Name"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idAuthorColUserLoans">
+                                        <m:Title
+                                            id="idAuthorColTitleUserLoans"
+                                            text="User ID"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idISBNColUserLoans">
+                                        <m:Title
+                                            id="idISBNColTitleUserLoans"
+                                            text="Book Name"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idDueDateColUserLoans">
+                                        <m:Title
+                                            id="idDueDateColTitleUserLoans"
+                                            text="DueDate"
+                                        />
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem
+                                        id="idBooksTableColListItemUserLoans"
+                                        type="Navigation"
+                                    >
+                                        <m:cells>
+                                            <m:Text
+                                                id="idBookNameColValueUserLoans"
+                                                text="{borrowerName}"
+                                            />
+                                            <m:Text
+                                                id="idAuthorColValueUserLoans"
+                                                text="{borrowerUserId}"
+                                            />
+                                            <m:Text
+                                                id="idISBNColValueUserLoans"
+                                                text="{borrowingBookName}"
+                                            />
+                                            <m:Text
+                                                id="idDueDateValueUserLoans"
+                                                text="{dueOn}"
+                                            />
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

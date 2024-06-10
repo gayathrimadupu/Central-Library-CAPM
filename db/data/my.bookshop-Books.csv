@@ -1,0 +1,11 @@
+ID,genre,authorName,title,ISBN,quantity,availableQuantity
+9fa93f26-2176-11ef-ab8e-325096b39f47,Fiction,George Orwell,1984,978-0141033570,4,4
+9fa940fc-2176-11ef-a9f7-325096b39f47,Fiction,Harper Lee,To Kill a Mockingbird,978-0061120084,2,0
+9fa94174-2176-11ef-9c6b-325096b39f47,Fantasy,J.K. Rowling,Harry Potter and the Sorcerer's Stone,978-0545010221,6,6
+9fa941c4-2176-11ef-bb3c-325096b39f47,Mystery,Dan Brown,The Da Vinci Code,978-0385504201,9,9
+9fa9420a-2176-11ef-9595-325096b39f47,Romance,John Green,The Fault in Our Stars,978-0062315007,21,21
+9fa9425a-2176-11ef-810a-325096b39f47,Thriller,Paula Hawkins,The Girl on the Train,978-1455586691,7,0
+9fa94296-2176-11ef-991e-325096b39f47,Fiction,J.D. Salinger,The Catcher in the Rye,978-0307277672,1,1
+9fa942dc-2176-11ef-85dd-325096b39f47,Fantasy,Stephenie Meyer,Twilight,978-0316015844,22,22
+9fa94322-2176-11ef-9bd2-325096b39f47,Mystery,Dan Brown,Angels & Demons,978-0385514231,14,14
+9fa94368-2176-11ef-92e9-325096b39f47,Drama,Sylvia Plath,The Bell Jar,978-0316769174,10,10

@@ -1,0 +1,11 @@
+ID,userName,userid,userpassword,typeOfUser
+75dc6d16-1f15-11ef-a0db-325096b39f47,Gayathri,Gayathri@artihcus.com,password,Admin
+75dc7018-1f15-11ef-82e8-325096b39f47,Nithya,Nithya@artihcus.com,password,user
+75dc70b8-1f15-11ef-9781-325096b39f47,Naina,Naina@artihcus.com,password,user
+75dc713a-1f15-11ef-8054-325096b39f47,priya,priya@artihcus.com,password,user
+75dc719e-1f15-11ef-a63a-325096b39f47,Gowthami,Gowthami@artihcus.com,password5,user
+75dc720c-1f15-11ef-a10d-325096b39f47,user6,user6@example.com,password6,user
+75dc7270-1f15-11ef-95e4-325096b39f47,user7,user7@example.com,password7,user
+75dc72d4-1f15-11ef-921f-325096b39f47,user8,user8@example.com,password8,user
+75dc7342-1f15-11ef-a5e8-325096b39f47,user9,user9@example.com,password9,user
+75dc73e2-1f15-11ef-85ed-325096b39f47,user10,user10@example.com,password10,user

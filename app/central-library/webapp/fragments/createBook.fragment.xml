@@ -1,0 +1,114 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <!--  -->
+    <Dialog
+        id="idCreateBookDialogUIHG"
+        resizable="true"
+        draggable="true"
+        contentWidth="30%"
+        title="Enter Book Details"
+    >
+        <beginButton />
+        <endButton />
+        <content>
+            <form:SimpleForm
+                id="idBooksDetailsFormToCreate"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <Label
+                    id="idAuthorNameLabelCreate2347IUYHAI"
+                    text="Author Name"
+                />
+                <Input
+                    id="idAuthorName"
+                    value="{newBookModel>/authorName}"
+                />
+                <Label
+                    id="idbookNameLabelCreateKHB"
+                    text="Book Title"
+                />
+                <Input
+                    id="idbookNameInput"
+                    value="{newBookModel>/title}"
+                />
+                <Label
+                    id="idstockLabelCreateTCYF"
+                    text="Stock"
+                />
+                <Input
+                    id="idStockInput"
+                    type="Number"
+                    value="{newBookModel>/quantity}"
+                />
+                <Label
+                    id="idavailableQuantityLabelCreateJGVHGV"
+                    text="Available Stock"
+                />
+                <Input
+                    id="idavailableQuantityInput"
+                    type="Number"
+                    value="{newBookModel>/availableQuantity}"
+                />
+                <Label
+                    id="idBookISBNLabelCreateJGV"
+                    text="ISBN"
+                />
+                <Input
+                    id="idbooks_ISBNInput"
+                    value="{newBookModel>/ISBN}"
+                />
+                <Label
+                    id="idBookGenreLabelCreateJGV"
+                    text="genre"
+                />
+                <Input
+                    id="idbooks_GenreInput"
+                    value="{newBookModel>/genre}"
+                />
+            </form:SimpleForm>
+        </content>
+        <HBox
+            id="idHboxCreateYGV"
+            class="buttonsHbox"
+        >
+            <Button
+                class="buttons"
+                id="idUpdateButtonKJGVJGV"
+                text="Update"
+                press="onUpdateBook"
+                type="Accept"
+            />
+            <Button
+                class="buttons"
+                id="idCreateButtonKIG"
+                text="Add"
+                press="onCreateBook"
+                type="Success"
+            />
+            <Button
+                class="buttons"
+                id="idCancelButtonKHG"
+                text="Cancel"
+                press="onCloseCreateBookDailog"
+                type="Negative"
+            />
+        </HBox>
+    </Dialog>
+</core:FragmentDefinition>
