@@ -7,10 +7,8 @@ entity Books : cuid {
   authorName        : String;
   title             : String;
   ISBN              : String;
-  quantity          : String;
+  quantity          :Integer64;
   availableQuantity : Integer64;
-// manyUsersloans    : Composition of many Activeloans
-//                       on manyUsersloans.takenbooks = $self
 
 }
 
