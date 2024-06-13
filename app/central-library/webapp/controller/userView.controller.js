@@ -25,16 +25,7 @@ sap.ui.define(
                 });
                 this.getView().setModel(newReservationModel, "newReservationModel");
 
-                // const oUserView = this.getView()
-                // const sUser = oUserView.byId("idUserInputValue")
-
-                // sUser.addValidator(function (args) {
-                //     if (true) {
-                //         var text = args.text;
-                //         return new Token({ key: text, text: text });
-                //     }
-                // });
-
+                
 
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.attachRoutePatternMatched(this.onCurrentUserDetails, this);
@@ -62,8 +53,7 @@ sap.ui.define(
                 const oView = this.getView()
                 var oSelected = this.byId("idBooksTable").getSelectedItem()
                 if (oSelected) {
-                    // var oStock = oSelected.getBindingContext().getObject().quantity
-                    // oAvailStock = oSelected.getBindingContext().getObject().availableQuantity
+                   
                     var oAvailStock = oSelected.getBindingContext().getObject().availableQuantity,
                         oBookName = oSelected.getBindingContext().getObject().title,
                         oUser = oView.byId("idUserName").getText(),
@@ -96,17 +86,10 @@ sap.ui.define(
 
                 sBook ? aFilters.push(new Filter("borrowingBookName", FilterOperator.EQ, sBook)): "";
 
-                // sUser.filter((ele) => {
-                //     ele ? aFilters.push(new Filter("borrowerName", FilterOperator.EQ, ele.getKey())) : "";
-                // })
+                
                 oBorrowTable.getBinding("items").filter(aFilters);
             },
-            // onAllBooksUserPress: async function(){
-            //     if(!this.oAllBooksFrag){
-            //         this.oAllBooksFrag = await this.loadFragment("AllBooksUser")
-            //     }
-            //     this.oAllBooksFrag.open()
-            // },
+            
             onAllBooksUserPress: async function () {
                 debugger
                 if (!this.oAllBooksFrag) {

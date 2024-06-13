@@ -96,20 +96,7 @@
                         text="{userid}"
                     />
                 </layout:VerticalLayout>
-                <!-- <layout:HorizontalLayout
-                    id="idHorizontalLayout"
-                    class="sapUiSmallMarginBeginEnd"
-                >
-                    <m:Image
-                        id="idImage"
-                        src=""
-                    />
-                    <m:Image
-                        id="idImage2"
-                        src=""
-                        class="sapUiSmallMarginBegin"
-                    />
-                </layout:HorizontalLayout> -->
+                
 
                 <layout:VerticalLayout
                     id="idVerticalLayout2"

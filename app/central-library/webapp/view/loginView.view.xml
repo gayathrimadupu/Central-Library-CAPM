@@ -23,10 +23,7 @@
                         />
                 </expandedHeading>
                 <expandedContent>
-                    <!-- <m:Label
-                        id="idBooksDataListPage"
-                        text="Welcomes to Library"
-                    /> -->
+                    
                 </expandedContent>
 
                 <actions>

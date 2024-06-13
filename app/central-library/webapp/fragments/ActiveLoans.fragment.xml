@@ -25,11 +25,7 @@
                             text="All Loans"
                         />
                         <ToolbarSpacer id="idSpacer" />
-                        <!-- <Button
-                            id="idAddButton"
-                            text="Add"
-                            press="onAddNewLoanPress"
-                        /> -->
+                      
                         <Button
                             id="idCloseBTN"
                             text="close"

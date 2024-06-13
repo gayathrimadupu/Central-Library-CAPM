@@ -21,10 +21,7 @@
         <f:title>
             <f:DynamicPageTitle id="booksDataPageTitle">
                 <f:expandedContent>
-                    <!-- <Label
-                        id="idBooksDataListPage"
-                        text="Welcomes you"
-                    /> -->
+                    
                 </f:expandedContent>
                 <f:heading>
                     <Title
@@ -33,23 +30,14 @@
                     />
                 </f:heading>
                 <f:actions>
-                    <!-- <Avatar
-                        id="idAvatar"
-                        src="./images/Admin.jpg"
-                        badgeTooltip="profile"
-                        press="onProfilePress"
-                    /> -->
+                    
                     <VBox id="idAdminNameInAdminpageVbox">
                         <Text
                             id="idAdminNameInAdminPage"
                             class="adminDataStyle"
                             text="Admin:{userName}"
                         />
-                        <!-- <Link
-                        class="profileCard"
-                        id="idAdminUserID"
-                        text="{userid}"
-                    /> -->
+                       
                         <Button
                             id="idLogOutbutton"
                             icon="sap-icon://log"
@@ -189,12 +177,7 @@
                             text="Availble Books"
                         />
                         <ToolbarSpacer id="idTableHeaderSpacer" />
-                        <Button
-                            id="idRefreshBtn"
-                            icon="sap-icon://refresh"
-                            type="Emphasized"
-                            press="onRefresh"
-                        />
+                        
                         <Button
                             id="idBtnCreate"
                             icon="sap-icon://add"
@@ -228,6 +211,14 @@
                             text="Check Active Loans"
                             type="Success"
                             press="onActiveLoansClick"
+                        />
+                        <Button
+                            id="idRefreshBtn"
+                            icon="sap-icon://refresh"
+                            type="Emphasized"
+                              tooltip="Refresh"
+                             text="Refresh"
+                            press="onRefresh"
                         />
                     </OverflowToolbar>
                 </headerToolbar>

@@ -109,7 +109,7 @@ sap.ui.define([
 
                 if (oNewUserName && oNewUserId && oNewUserPassword) {
                     debugger
-                    // var oContext = this.getView().byId("idBooksTable").getBinding("items")
+                    
                     const oContext = this.getView().getModel().bindList("/UserLogin")
                     var oNewUser = this.getView().getModel("oNewUserRegister").getData();
                     if (oNewUserPassword === oNewUserConfirmPassword) {
@@ -130,19 +130,11 @@ sap.ui.define([
                                 MessageToast.show("Registration Successfull")
                                 this.oSignUpDialog.close()
 
-                                // {
-                                // success: function () {
-                                //     MessageToast.show("Registration Successfull");
-                                // },
-                                // error: function () {
-                                //     MessageToast.show("Registration failed");
-                                // }
-                                // });
+                               
 
                             }
 
-                            // this.getView().getModel("oNewUserRegister").setData("");
-                            // this.getView().byId("idSignUpUserConfirmPasswordval").setValue("")
+                            
                         })
 
                     }

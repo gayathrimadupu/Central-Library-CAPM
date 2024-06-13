@@ -31,12 +31,12 @@
                             text="Availble Books"
                         />
                         <ToolbarSpacer id="idTableHeaderSpacer" />
-                        <Button
+                        <!-- <Button
                             id="idRefreshBtn2"
                             icon="sap-icon://refresh"
                             type="Emphasized"
                             press="onRefresh"
-                        />
+                        /> -->
                         <Button
                             id="idreservebttn"
                             text="Reserve Book"

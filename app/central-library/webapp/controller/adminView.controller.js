@@ -32,15 +32,7 @@ sap.ui.define([
                     borrowingBookName: "",
                     borrowingBookISBN: "",
                     dueOn: ""
-                    // user: {
-                    //     userName: "",
-                    //     userid: "",
-
-                    // },
-                    // takenbooks: {
-                    //     title: "",
-                    // },
-                    // dueOn: ""
+                    
                 });
 
                 this.getView().setModel(newBookModel, "newBookModel");
@@ -62,7 +54,7 @@ sap.ui.define([
                     });
 
                 });
-                //  MultiInputs End
+               
                 // route to specific ui
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.attachRoutePatternMatched(this.onCurrentUserDetails, this);
@@ -94,13 +86,7 @@ sap.ui.define([
                     oBooksTable = oAdminView.byId("idBooksTable"),
                     aFilters = [];
 
-                // Last change here
-                // sAuthor.filter((ele) => {
-                //     ele ? aFilters.push(new Filter("authorName", FilterOperator.EQ, ele.getKey())) : "";
-                // })
-                // sBookName.filter((ele) => {
-                //     ele ? aFilters.push(new Filter("title", FilterOperator.EQ, ele.getKey())) : "";
-                // })
+                
 
                 var aInputsFields = [sAuthor, sBookName,sBookISBN];
                 aInputsFields.forEach((inputs) => {
@@ -123,26 +109,25 @@ sap.ui.define([
             },
 
             onRefresh: function () {
+                debugger
                 this.getView().byId("idBooksTable").getBinding("items").refresh()
 
             },
             onEditBook: async function () {
                 debugger
-                // if (!this.oEditBooksPop) {
-                //     this.oEditBooksPop = await this.loadFragment("updateBook")
-                // }
-                debugger
+                
                 if (!this.oCreateBookPop) {
                     this.oCreateBookPop = await this.loadFragment("createBook")
                 }
 
                 var oSelected = this.byId("idBooksTable").getSelectedItem();
                 if (oSelected) {
-                    // var oBook = oSelected.getBindingContext().getObject().ID;
+                    
                     var oAuthorName = oSelected.getBindingContext().getObject().authorName
                     var oBookname = oSelected.getBindingContext().getObject().title
                     var oStock = oSelected.getBindingContext().getObject().quantity
                     var oavailableStock = oSelected.getBindingContext().getObject().availableQuantity
+                    var ogenre = oSelected.getBindingContext().getObject().genre
                     var oISBN = oSelected.getBindingContext().getObject().ISBN
 
                     const newBookModel = new JSONModel({
@@ -150,10 +135,11 @@ sap.ui.define([
                         title: oBookname,
                         quantity: oStock,
                         availableQuantity: oavailableStock,
+                        genre: ogenre,
                         ISBN: oISBN,
                     });
                     this.getView().setModel(newBookModel, "newBookModel");
-                    // this.oEditBooksPop.open();
+                   
                     this.oCreateBookPop.open()
                 }
                 else {
@@ -161,42 +147,7 @@ sap.ui.define([
                 }
 
             },
-            // onUpdateBook: function () {
-            //     debugger
-            //     var oPayload = this.getView().getModel("newBookModel").getData();
-            //     var oTable = this.getView().byId("idBooksTable");
-            //     var oSelectedItem = oTable.getSelectedItem();
-
-            //     // if (!oSelectedItem) {
-            //     //     MessageToast.show("Select a book to update");
-            //     //     return;
-            //     // }
-
-            //     var oContext = oSelectedItem.getBindingContext();
-            //     var oModel = oContext.getModel();
-
-            //     // Update the properties directly on the context
-            //     for (var prop in oPayload) {
-            //         if (oPayload.hasOwnProperty(prop)) {
-            //             oContext.setProperty(prop, oPayload[prop]);
-            //         }
-            //     }
-            //     const oAvalStock = parseInt(oPayload.availableQuantity)
-            //     const oStock = parseInt(oPayload.quantity)
-            //     if (oAvalStock <= oStock) {
-            //         // Submit the changes
-            //         oModel.submitBatch("updateGroup").then(function () {
-            //             oTable.getBinding("items").refresh();
-            //             this.oCreateBookPop.close();
-            //             MessageToast.show("Book Updated Successfully");
-            //         }.bind(this)).catch(function (oError) {
-            //             this.oCreateBookPop.close();
-            //             sap.m.MessageBox.error("Failed to update book: " + oError.message);
-            //         }.bind(this));
-            //     } else {
-            //         MessageToast.show("Avilable Stock should be lesser or equal to the Stock")
-            //     }
-            // },
+          
             onCreateBtnPress: async function () {
                 debugger
                 if (!this.oCreateBookPop) {
@@ -223,16 +174,14 @@ sap.ui.define([
                     if (aBookContexts.length > 0) {
                         var oBookContext = aBookContexts[0];
                         var oBookData = oBookContext.getObject();
-                        //  oBookData.title = oPayload.title
-                        //  oBookData.authorName = oPayload.authorName
-                        //  oBookData.quantity = oPayload.quantity
-                        //  oBookData.availableQuantity =oPayload.availableQuantity
-                        //  oBookData.ISBN = oPayload.ISBN
+                        
 
                         oBookContext.setProperty("title", oPayload.title);
                         oBookContext.setProperty("authorName", oPayload.authorName);
                         oBookContext.setProperty("quantity", oPayload.quantity);
                         oBookContext.setProperty("availableQuantity", oPayload.availableQuantity);
+                        oBookContext.setProperty("genre", oPayload.genre);
+
                         oBookContext.setProperty("ISBN", oPayload.ISBN);
 
                         const oAvalStock = parseInt(oPayload.availableQuantity)
@@ -274,14 +223,9 @@ sap.ui.define([
                         MessageToast.show("Error creating book");
                     }
                 });
-                // oView.byId("idAuthorName").setValue(""),
-                //     oView.byId("idbookNameInput").setValue(""),
-                //     oView.byId("idStockInput").setValue(""),
-                //     oView.byId("idavailableQuantityInput").setValue(""),
-                //     oView.byId("idbooks_ISBNInput").setValue(""),
+               
                 this.oCreateBookPop.close()
-                // this.getView().byId("idBooksTable").getBinding("items").refresh()
-
+                
             },
             onCloseCreateBookDailog: function () {
 
@@ -316,9 +260,7 @@ sap.ui.define([
                 debugger
                 if (!this.oActiveLoanPopUp) {
                     this.oActiveLoanPopUp = await this.loadFragment("ActiveLoans")
-                    // this.oNewLoanDailog = await this.loadFragment("loanCreate")
-                    // this.oReservationsDialog = await this.loadFragment("Reservations")
-
+                    
                 }
                 this.oActiveLoanPopUp.open();
                 this.getView().byId("idLoanTable").getBinding("items").refresh();
@@ -326,7 +268,7 @@ sap.ui.define([
             },
             onCloseActiveLoans: function () {
                 // debugger;
-                // this.byId("idActiveLoansTable").close();
+                
                 if (this.oActiveLoanPopUp.isOpen()) {
                     this.oActiveLoanPopUp.close();
                 }
@@ -336,9 +278,7 @@ sap.ui.define([
                 debugger
                 if (!this.oReservationsDialog) {
                     this.oReservationsDialog = await this.loadFragment("Reservations")
-                    // this.oActiveLoanPopUp = await this.loadFragment("ActiveLoans")
-                    // this.oNewLoanDailog = await this.loadFragment("loanCreate")
-
+                    
                 }
                 this.getView().byId("idReservationsTable").getBinding("items").refresh();
                 this.oReservationsDialog.open()
@@ -422,9 +362,9 @@ sap.ui.define([
 
 
                 if (!this.oNewLoanDailog) {
-                    // this.oActiveLoanPopUp = await this.loadFragment("ActiveLoans")
+                  
                     this.oNewLoanDailog = await this.loadFragment("loanCreate")
-                    // this.oReservationsDialog = await this.loadFragment("Reservations")
+                  
 
 
                     const newLoanModel = new JSONModel({
@@ -536,18 +476,7 @@ sap.ui.define([
                     MessageToast.show(error);
                 }
             },
-            // onClearLoan: async function () {
-            //     debugger
-            //     if (!this.oDeleteCautionDailog) {
-            //         this.oDeleteCautionDailog = await this.loadFragment("confirmDelete")
-            //     }
-            //     this.oDeleteCautionDailog.open()
-            // },
-            // oDeleteCautionDailogClose: function () {
-            //     if (this.oDeleteCautionDailog.isOpen()) {
-            //         this.oDeleteCautionDailog.close();
-            //     }
-            // },
+            
             onClearLoanButtonPress: function () {
                 debugger;
                 const oAdminView = this.getView(),
@@ -606,25 +535,7 @@ sap.ui.define([
 
 
 
-            // onClearLoanButtonPress: function () {
-            //     debugger
-            //     const oAdminView = this.getView(),
-            //         oSelected = oAdminView.byId("idLoanTable").getSelectedItem()
-            //     if (oSelected) {
-            //         var oUser = oSelected.getBindingContext().getObject().borrowerName
-            //         oSelected.getBindingContext().delete("$auto").then(function () {
-            //             MessageToast.show(oUser + " SuccessFully Deleted");
-            //         },
-            //             function (oError) {
-            //                 MessageToast.show("Deletion Error: ", oError);
-            //             });
-            //         this.getView().byId("idLoanTable").getBinding("items").refresh();
-
-            //     } else {
-            //         MessageToast.show("Please Select a user to close the loan");
-            //     }
-            //     this.oDeleteCautionDailog.close()
-            // }
+            
 
         });
     });
