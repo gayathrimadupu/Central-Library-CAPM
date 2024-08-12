@@ -1,0 +1,112 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Dialog
+        id="idAllBooksUserDailog123"
+        resizable="true"
+        draggable="true"
+        contentWidth="80%"
+        contentHeight="80%"
+        title="All Books"
+    >
+        <content>
+            <Table
+                id="idBooksTable"
+                mode="MultiSelect"
+                alternateRowColors="true"
+                items="{path:'/Books',parameters:{ 
+                    $count:true,
+                    $$updateGroupId:'booksGroup'     
+                     }
+                }"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="idBooksTableHeader">
+                        <!-- text="Availble Stock :{/Books/$count} Books" -->
+
+                        <Title
+                            id="idTableHeaderTitle"
+                            text="Availble Books"
+                        />
+                        <ToolbarSpacer id="idTableHeaderSpacer" />
+                        <!-- <Button
+                            id="idRefreshBtn2"
+                            icon="sap-icon://refresh"
+                            type="Emphasized"
+                            press="onRefresh"
+                        /> -->
+                        <Button
+                            id="idreservebttn"
+                            text="Reserve Book"
+                            icon="sap-icon://add"
+                            type="Emphasized"
+                            press="onReserveBookPress"
+                            tooltip="Click to Reserve"
+                        />
+                        <Button
+                            id="isCloseBTTn"
+                            text="Back"
+                            icon="sap-icon://cross"
+                            type="Back"
+                            press="oncloseAllbooks"
+                            tooltip="Close Window"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="idAuthorCol">
+                        <Title
+                            id="idAuthorColHead"
+                            text="Author"
+                        />
+                    </Column>
+                    <Column id="idbookNameCol">
+                        <Title
+                            id="idbookNameColHead"
+                            text="Book Title"
+                        />
+                    </Column>
+                    <Column id="idavailableQuantityCol">
+                        <Title
+                            id="idavailableQuantityColHead"
+                            text="Available Stock"
+                        />
+                    </Column>
+                    <Column id="idISBNCol">
+                        <Title
+                            id="idISBNColHead"
+                            text="ISBN Number"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        id="idBooksTableColListItem"
+                        type="Navigation"
+                    >
+                        <cells>
+                            <Text
+                                id="AuthorColValueId"
+                                text="{authorName}"
+                            />
+                            <Text
+                                id="idBookNameColValue"
+                                text="{title}"
+                            />
+                            <Text
+                                id="idavailableQuantityColValue"
+                                text="{availableQuantity}"
+                            />
+                            <Text
+                                id="idISBNColValue"
+                                text="{ISBN}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

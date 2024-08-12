@@ -70,9 +70,24 @@ modules:
             - comappcentrallibrary.zip
           name: comappcentrallibrary
           target-path: resources/
+        - artifacts:
+            - comapplibraryfiori.zip
+          name: comapplibraryfiori
+          target-path: resources/
   - name: comappcentrallibrary
     type: html5
     path: app/central-library
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms:
+        []
+  - name: comapplibraryfiori
+    type: html5
+    path: app/library_fiori
     build-parameters:
       build-result: dist
       builder: custom

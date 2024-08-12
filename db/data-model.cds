@@ -14,9 +14,8 @@ entity Books : cuid {
 
 entity UserLogin : cuid {
   userName     : String;
-  userid       : String;
+  userId       : String;
   userpassword : String;
-  
   typeOfUser   : String;
 
 }

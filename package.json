@@ -26,7 +26,8 @@
     "watch-central-library": "cds watch --open central-library/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy Central-Library-CAPM --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-library_fiori": "cds watch --open library_fiori/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -45,7 +46,7 @@
         "auth": {
           "kind": "mocked",
           "users": {
-            "subhash@sap.com": {
+            "Gayathri@artihcus.com": {
               "password": "Gayathri",
               "ID": "Gayathri@artihcus.com",
               "roles": [
@@ -61,7 +62,11 @@
             }
           }
         }
-      }
+      },
+      "auth": "xsuaa"
     }
-  }
+  },
+  "sapux": [
+    "app/library_fiori"
+  ]
 }

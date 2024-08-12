@@ -78,40 +78,6 @@ sap.ui.define(
                     MessageToast.show("Select a book to reserve")
                 }
             },
-    //         if (oAvailStock === "0") {
-    //             MessageToast.show("Book not available")
-               
-    //         } else {
-    //             var oModel = this.getView().getModel();
-    //             var oBinding = oModel.bindList("/Reservations");
-
-    //             oBinding.filter([
-    //                 new Filter("ReservedUserId", FilterOperator.EQ, oUserId),
-    //                 new Filter("ReservedBook", FilterOperator.EQ, oBookName)
-    //             ]);
-
-    //             oBinding.requestContexts().then(function (aContexts) {
-    //                 if (aContexts.length > 0) {
-    //                     MessageToast.show("You already reserved this Book")
-    //                 } else {
-    //                     const oBinding = oView.getModel().bindList("/Reservations")
-    //                     oBinding.create({
-    //                         ReservedUserName: oUser,
-    //                         ReservedUserId: oUserId,
-    //                         ReservedBook: oBookName
-
-    //                     })
-
-    //                     MessageToast.show("Reservation Sent to Admin")
-
-    //                 }
-    //             })
-    //         }
-    //     } else {
-    //         MessageToast.show("Select a book to reserve")
-    //     }
-
-    // },
             onFilterCilck: function () {
                 const oUserView = this.getView(),
                 oBorrowTable = oUserView.byId("idUserActiveLoanTable"),
